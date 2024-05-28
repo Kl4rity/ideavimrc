@@ -1,0 +1,88 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" TODO: Install LazyGit and map to it
+
+" Leader key
+let mapleader=" "
+
+" Search
+nmap <leader>sa <Action>(SearchEverywhere)
+nmap <leader>sf <Action>(FindInPath)
+nmap <leader>sk <Action>(GotoAction)
+
+" Terminal
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+
+" Windows
+sethandler <c-h> a:vim
+sethandler <c-l> a:vim
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+" Window - Split
+nmap <leader>w- <Action>(SplitHorizontally)
+nmap <leader>w_ <Action>(SplitVertically)
+nmap <leader>wq <Action>(CloseAllEditors)
+nmap <leader>wx <Action>(CloseContent)
+
+" Window - Resize
+nmap <c-S-h> <Action>(StretchSplitToLeft)
+nmap <c-S-l> <Action>(StretchSplitToRight)
+nmap <c-S-k> <Action>(StretchSplitToTop)
+nmap <c-S-j> <Action>(StretchSplitToBottom)
+
+" Window - Focus NerdTree
+nmap <leader>e :NERDTreeFocus<CR>
+nmap <leader>E :NERDTreeToggle<CR>
+
+" Window - Catchall
+nmap <leader>ws <Action>(Switcher)
+
+" Code
+nmap <leader>fm <Action>(ReformatCode)
+map <c-J> <Action>(MoveLineDown)
+map <c-K> <Action>(MoveLineUp)
+map <leader>/ <Action>(CommentByLineComment)
+nmap <leader>fr <Action>(RenameElement)
+
+" Run
+nmao <leader>rr <Action>(Run)
+nmap <leader>rd <Action>(Debug)
+nmap <leader>rx <Action>(Stop)
+
+" Debug
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+" TODO: Step over, into etc..
+
+" LSP Info
+nmap <S-k> <Action>(QuickJavaDoc)
+nmap <S-d> <Action>(GotoDeclaration)
+nmap <S-r> <Action>(GotoReferences)
+
+set relativenumber
+set number
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+set which-key
+" disable the timeout option
+set notimeout
+
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Plugins
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
