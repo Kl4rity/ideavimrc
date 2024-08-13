@@ -1,12 +1,9 @@
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
-" You can find a list of commands here: https://jb.gg/h38q75
-" Find more examples here: https://jb.gg/share-ideavimrc
-
-" TODO: Install LazyGit and map to it
-
 " Leader key
 let mapleader=" "
+
+" Configure whichkey
+set which-key
+let g:WhichKey_ShowVimActions = "true"
 
 " Search
 nmap <leader>sa <Action>(SearchEverywhere)
@@ -14,9 +11,11 @@ nmap <leader>sf <Action>(FindInPath)
 nmap <leader>sk <Action>(GotoAction)
 
 " Terminal
+let g:WhichKeyDesc_ActivateTerminalToolWindow = "<leader>t Activate Terminal"
 nmap <leader>t <Action>(ActivateTerminalToolWindow)
 
 " Windows
+let g:WhichKeyDesc_Window_Related_Prefix = "<leader>w Window"
 sethandler <c-h> a:vim
 sethandler <c-l> a:vim
 sethandler <c-j> a:vim
@@ -39,13 +38,19 @@ nmap <c-S-k> <Action>(StretchSplitToTop)
 nmap <c-S-j> <Action>(StretchSplitToBottom)
 
 " Window - Focus NerdTree
+let g:WhichKeyDesc_NERDTreeFocus = "<leader>e NerdTree - Focus"
 nmap <leader>e :NERDTreeFocus<CR>
+let g:WhichKeyDesc_NERDTreeToggle = "<leader>E NerdTree - Toggle"
 nmap <leader>E :NERDTreeToggle<CR>
 
 " Window - Catchall
 nmap <leader>ws <Action>(Switcher)
 
+" Window - Focus Mode
+nmap <leader>wd <Action>(ToggleDistractionFreeMode)
+
 " Code
+let g:WhichKeyDesc_Refactoring = "<leader>f Refactoring"
 nmap <leader>fm <Action>(ReformatCode)
 map <c-J> <Action>(MoveLineDown)
 map <c-K> <Action>(MoveLineUp)
@@ -53,26 +58,40 @@ map <leader>/ <Action>(CommentByLineComment)
 nmap <leader>fr <Action>(RenameElement)
 
 " Run
-nmao <leader>rr <Action>(Run)
+let g:WhichKeyDesc_Run_Configs = "<leader>r Run"
+nmap <leader>rr <Action>(Run)
 nmap <leader>rd <Action>(Debug)
 nmap <leader>rx <Action>(Stop)
 
 " Debug
+let g:WhichKeyDesc_Debug_Configs = "<leader>d Debug"
 nmap <leader>db <Action>(ToggleLineBreakpoint)
 " TODO: Step over, into etc..
 
 " LSP Info
+let g:WhichKeyDesc_LSP = "<leader>i LSP"
+nmap <leader>ik <Action>(QuickJavaDoc)
 nmap <S-k> <Action>(QuickJavaDoc)
+nmap <leader>id <Action>(GotoDeclaration)
 nmap <S-d> <Action>(GotoDeclaration)
+nmap <leader>ir <Action>(GotoReferences)
 nmap <S-r> <Action>(GotoReferences)
+nmap <leader>iE <Action>(ShowErrorDescription)
+nmap <S-E> <Action>(ShowErrorDescription)
 
 set relativenumber
 set number
 set scrolloff=5
 
 " Do incremental searching.
+set ignorecase
+set smartcase
 set incsearch
-set which-key
+set hlsearch
+
+"Surround
+set surround
+
 " disable the timeout option
 set notimeout
 
