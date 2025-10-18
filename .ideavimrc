@@ -13,6 +13,8 @@ nmap <leader>sk <Action>(GotoAction)
 " Terminal
 let g:WhichKeyDesc_ActivateTerminalToolWindow = "<leader>t Activate Terminal"
 nmap <leader>t <Action>(ActivateTerminalToolWindow)
+let g:WhichKeyDesc_CloseContent = "<leader>x Close Buffer"
+nmap <leader>x <Action>(CloseContent)
 
 " Windows
 let g:WhichKeyDesc_Window_Related_Prefix = "<leader>w Window"
@@ -31,6 +33,10 @@ nmap <leader>w_ <Action>(SplitVertically)
 nmap <leader>wq <Action>(CloseAllEditors)
 nmap <leader>wx <Action>(CloseContent)
 
+" Window - Open in Split
+nmap <leader>wv <Action>(OpenEditorInOppositeTabGroup)
+nmap <leader>wh <Action>(MoveEditorToOppositeTabGroup)
+
 " Window - Resize
 nmap <c-S-h> <Action>(StretchSplitToLeft)
 nmap <c-S-l> <Action>(StretchSplitToRight)
@@ -47,6 +53,7 @@ nmap <leader>E :NERDTreeToggle<CR>
 nmap <leader>ws <Action>(Switcher)
 
 " Window - Focus Mode
+nmap <leader>wm <Action>(HideAllWindows)
 nmap <leader>wd <Action>(ToggleDistractionFreeMode)
 
 " Code
@@ -97,6 +104,9 @@ set notimeout
 
 set clipboard+=unnamed
 set clipboard+=ideaput
+
+" override highlightedyank with p
+vnoremap p "_dP
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
