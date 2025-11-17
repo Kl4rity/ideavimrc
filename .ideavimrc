@@ -69,6 +69,7 @@ let g:WhichKeyDesc_Run_Configs = "<leader>r Run"
 nmap <leader>rr <Action>(Run)
 nmap <leader>rd <Action>(Debug)
 nmap <leader>rx <Action>(Stop)
+nmap <leader>rg <Action>(Gradle.ExecuteTask)
 
 " Debug
 let g:WhichKeyDesc_Debug_Configs = "<leader>d Debug"
